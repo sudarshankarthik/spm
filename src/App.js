@@ -5,17 +5,20 @@ import Intro from './routes/Intro'
 import Cpm from './routes/Cpm'
 import Pert from './routes/Pert'
 import Risk from './routes/Risk'
+import Header from "./components/Header";
 
 function App() {
   return (
+    <>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/about" element={<About />}/>
-        <Route path="/intro" element={<Intro />}/>
-        <Route path="/Cpm" element={<Cpm />}/>
-        <Route path="/Pert" element={<Pert />}/>
-        <Route path="/Risk" element={<Risk />}/>
+        <Route path="/blog" element={<Intro />}/>
+        <Route path="/theory" element={<Cpm />}/>
+        <Route path="/caculator" element={<Pert />}/>
       </Routes>
+      </>
   );
 }
 
