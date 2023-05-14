@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <header>
-    <MDBNavbar expand='lg' dark  bgColor='dark'>
+    <MDBNavbar expand='lg' fixed='top' dark bgColor='dark'>
       <MDBContainer fluid>
         <MDBNavbarBrand tag={Link} to='/'><img src={logo} alt='Software Project Management' height='30' loading='lazy'/>  </MDBNavbarBrand>
         <MDBNavbarToggler
@@ -41,7 +41,7 @@ const Header = () => {
         </MDBNavbarToggler>
         <MDBCollapse navbar show={showNav}>
           <MDBNavbarNav>
-            <MDBNavbarItem> <MDBNavbarLink  active={activeItem === '/home'} aria-current='page' tag={Link} to='/intro'> Intro </MDBNavbarLink> </MDBNavbarItem>
+            <MDBNavbarItem> <MDBNavbarLink  active={activeItem === '/intro'} aria-current='page' tag={Link} to='/intro'> Intro </MDBNavbarLink> </MDBNavbarItem>
             <MDBNavbarItem> <MDBNavbarLink  active={activeItem === '/blog'} tag={Link} to='/blog'>Blog</MDBNavbarLink> </MDBNavbarItem>
             <MDBNavbarItem> <MDBNavbarLink  active={activeItem === '/theory'}tag={Link} to='/theory'>Theory</MDBNavbarLink> </MDBNavbarItem>
             <MDBNavbarItem> <MDBNavbarLink  active={activeItem === '/caculator'} tag={Link} to='/caculator'>Caculator</MDBNavbarLink> </MDBNavbarItem>

@@ -1,0 +1,31 @@
+
+/* Default height for small devices */
+.hero {
+  height: 900px;
+}
+
+
+.features {
+    background-color: rgb(223, 223, 223);
+}
+
+.equal-width {
+  flex-basis: 200px;
+  flex-grow: 1;
+  margin: 50px;
+}
+
+.cta-card {
+  height: 450px;
+}
+
+/* Height for devices larger than 992px */
+  @media (min-width: 992px) {
+    .hero {
+      height: 500px;
+    }
+
+    .cta-card {
+      height: 450px;
+    }
+  }
