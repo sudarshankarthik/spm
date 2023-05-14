@@ -17,19 +17,7 @@ export default function Footer() {
             floating
             size="lg"
             className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fab fa-facebook-f' />
-          </MDBBtn>
-
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
+            href='https://twitter.com/Sudarshan_Karth'
             role='button'
           >
             <MDBIcon fab className='fa-twitter' />
@@ -41,19 +29,7 @@ export default function Footer() {
             floating
             size="lg"
             className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fa-google' />
-          </MDBBtn>
-
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
+            href='https://www.instagram.com/sudarshan_karthiktk/'
             role='button'
           >
             <MDBIcon fab className='fa-instagram' />
@@ -65,7 +41,7 @@ export default function Footer() {
             floating
             size="lg"
             className='text-dark m-1'
-            href='#!'
+            href='https://www.linkedin.com/in/sudarshan-karthik-thirukandiyur-45583a1ba/'
             role='button'
           >
             <MDBIcon fab className='fa-linkedin' />
@@ -77,7 +53,7 @@ export default function Footer() {
             floating
             size="lg"
             className='text-dark m-1'
-            href='#!'
+            href='https://github.com/sudarshankarthik'
             role='button'
           >
             <MDBIcon fab className='fa-github' />
@@ -87,9 +63,7 @@ export default function Footer() {
 
       <div className='text-center text-dark p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
         © 2020 Copyright:
-        <a className='text-dark' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
-        </a>
+        Sudarshan Karthik
       </div>
     </MDBFooter>
   );
