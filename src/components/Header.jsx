@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
-import logo from '../res/images/board.png'
+import logo from '../assets/icons/board.png'
 import {
   MDBNavbar,
   MDBNavbarItem,
