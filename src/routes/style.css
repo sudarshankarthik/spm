@@ -19,6 +19,16 @@
   height: 450px;
 }
 
+.scrollspy-example {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+}
+
+.intro {
+  text-align: justify;
+}
+
 /* Height for devices larger than 992px */
   @media (min-width: 992px) {
     .hero {
@@ -28,4 +38,12 @@
     .cta-card {
       height: 450px;
     }
+    .scrollspy-example {
+      position: relative;
+      height: 58vh;
+      overflow: auto;
+    }
   }
+
+  
+
