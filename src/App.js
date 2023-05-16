@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Blog from "./routes/Blog";
 import Theory from "./routes/Theory";
+import Caculator from "./routes/Caculator";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/intro" element={<Intro />}/>
         <Route path="/blog" element={<Blog />}/>
         <Route path="/theory" element={<Theory />}/>
+        <Route path="/caculator" element={<Caculator />}/>
         <Route path="/about" element={<About />}/>
       </Routes>
       <Footer />
