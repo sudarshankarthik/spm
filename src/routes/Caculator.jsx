@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   MDBTabs,
   MDBTabsItem,
@@ -6,52 +6,61 @@ import {
   MDBTabsContent,
   MDBTabsPane
 } from 'mdb-react-ui-kit';
-import Cpm from '../components/theory/cpm';
-import Risk from '../components/theory/risk';
-import Pert from '../components/theory/pert';
-import Val from '../components/theory/val';
+import Cpm from '../components/caculator/cpm';
+import Risk from '../components/caculator/risk';
+import Pert from '../components/caculator/pert';
+import Val from '../components/caculator/val';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Caculator() {
-  const [basicActive, setBasicActive] = useState('tab1');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const topics = ['cpm','pert','risk','val']
+  var topic = searchParams.get('topic')
+  if (!topics.includes(topic))
+    topic = 'cpm'
+  const [basicActive, setBasicActive] = useState(topic);
 
   const handleBasicClick = (value) => {
     if (value === basicActive) {
       return;
     }
-
     setBasicActive(value);
   };
 
+  useEffect(() => {
+    setSearchParams({'topic': basicActive}) 
+    }, [basicActive, setSearchParams])
+  
   return (
     <>
       <MDBTabs className='m-5'>
         <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleBasicClick('tab1')} active={basicActive === 'tab1'}>
+          <MDBTabsLink onClick={() => handleBasicClick('cpm')} active={basicActive === 'cpm'}>
             CPM
           </MDBTabsLink>
         </MDBTabsItem>
         <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleBasicClick('tab2')} active={basicActive === 'tab2'}>
+          <MDBTabsLink onClick={() => handleBasicClick('risk')} active={basicActive === 'risk'}>
             Risk
           </MDBTabsLink>
         </MDBTabsItem>
         <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleBasicClick('tab3')} active={basicActive === 'tab3'}>
+          <MDBTabsLink onClick={() => handleBasicClick('pert')} active={basicActive === 'pert'}>
             PERT
           </MDBTabsLink>
         </MDBTabsItem>
         <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleBasicClick('tab4')} active={basicActive === 'tab4'}>
+          <MDBTabsLink onClick={() => handleBasicClick('val')} active={basicActive === 'val'}>
             VAL
           </MDBTabsLink>
         </MDBTabsItem>
       </MDBTabs>
 
       <MDBTabsContent className='m-5'>
-        <MDBTabsPane show={basicActive === 'tab1'}><Cpm /></MDBTabsPane>
-        <MDBTabsPane show={basicActive === 'tab2'}><Risk /> </MDBTabsPane>
-        <MDBTabsPane show={basicActive === 'tab3'}><Pert /> </MDBTabsPane>
-        <MDBTabsPane show={basicActive === 'tab4'}><Val /></MDBTabsPane>
+        <MDBTabsPane show={basicActive === 'cpm'}><Cpm /></MDBTabsPane>
+        <MDBTabsPane show={basicActive === 'risk'}><Risk /> </MDBTabsPane>
+        <MDBTabsPane show={basicActive === 'pert'}><Pert /> </MDBTabsPane>
+        <MDBTabsPane show={basicActive === 'val'}><Val /></MDBTabsPane>
       </MDBTabsContent>
     </>
   );

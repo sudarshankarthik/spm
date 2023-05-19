@@ -23,7 +23,6 @@ const Header = () => {
   const location = useLocation();
   useEffect(() => {
     setActiveItem(location.pathname.startsWith('/') ? location.pathname : '');
-    console.log(activeItem);
   }, [location,activeItem]);
 
   return (
