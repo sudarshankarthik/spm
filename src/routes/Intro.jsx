@@ -21,7 +21,7 @@ export default function Intro() {
     <MDBContainer className='mt-5 intro'>
       <MDBTypography tag='h1' className='p-2 square border-bottom'>Introduction to Software Project Management</MDBTypography>
       <MDBRow>
-        <MDBCol md='10'>
+        <MDBCol md='10' className='intro-content'>
           <div id='element' ref={containerRef} className='scrollspy-example m-1 p-3'>
             <section ref={section1} id='section-1'>
               <h3>The Software Project Management Process</h3>
@@ -141,7 +141,7 @@ export default function Intro() {
           </div>
         </MDBCol>
 
-        <MDBCol md='2'>
+        <MDBCol md='2' className='intro-scrollspy'>
           <MDBScrollspy container={containerRef}>
             <MDBScrollspyLink targetRef={section1}>The Software Project Management Process</MDBScrollspyLink>
             <MDBScrollspyLink targetRef={section2}>Software Project Management Methodologies</MDBScrollspyLink>

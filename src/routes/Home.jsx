@@ -2,6 +2,7 @@ import React from "react";
 import { MDBBtn, MDBCard, MDBCardImage, MDBCardText, MDBTypography,MDBCardOverlay,MDBCardTitle} from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
 import './style.css'
+
 function Home() {
 
   const navigate = useNavigate()
@@ -20,11 +21,9 @@ function Home() {
     navigate('/blog')
   }
 
-  
-
   return (
     <div className="home">
-        <div className="p-5 bg-image hero" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1274')", }}>
+      <div className="p-5 bg-image hero" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1274')", }}>
           <div className="mask" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
             <div className="d-flex p-5 flex-column justify-content-start mb-5">
               <div className="text-white">
@@ -37,7 +36,8 @@ function Home() {
             </div>
         </div>
       </div>
-      <div className="p-5">
+
+      <div className="p-5 content">
         <MDBTypography tag='h2' className="mb-5">Why Software Project Management is important</MDBTypography>
         
         <MDBTypography tag='h4' className="mb-1">Achieve project goals</MDBTypography>
@@ -55,6 +55,7 @@ function Home() {
         <MDBTypography tag='h4' className="mb-1">Enhance customer satisfaction</MDBTypography>
         <MDBTypography tag='p'  className="mb-3" align="justify">Effective project management is essential for enhancing customer satisfaction. By ensuring that projects are completed on time, within budget, and to the desired quality, project management helps to meet customer expectations and build trust. Effective project management also helps to identify and address issues that may impact customer satisfaction, leading to better outcomes and a stronger reputation for the organization. By tracking progress against project goals and making adjustments as needed, project management helps to ensure that the project meets the customer's needs and expectations. By enhancing customer satisfaction, effective project management can also help to increase customer loyalty and drive repeat business.</MDBTypography>
       </div>
+
       <div className="features p-1">
        <div className='d-flex flex-column flex-lg-row justify-content-evenly ms-auto .flex'>
       <MDBCard background='dark' className='text-white equal-width'>
