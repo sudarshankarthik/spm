@@ -57,7 +57,7 @@ const Pert = () => {
       </MDBContainer>
 
       <MDBContainer className='bg-light bg-gradient p-4 mb-3'>
-        <MDBTypography variant='h4'>CPM Expalined by example</MDBTypography>
+        <MDBTypography variant='h4'>PERT Explained by example</MDBTypography>
         <MDBTypography variant='p'>Here is the breakdown of the example activities:</MDBTypography>
         <ol>
           <li>Activity A: Duration 6, No predecessors</li>
@@ -73,38 +73,102 @@ const Pert = () => {
         <ol>
           <li>Create a network diagram: Construct a visual representation of the project activities and their relationships. The diagram helps visualize the flow of activities and their dependencies.</li>
           <li>Identify the dependencies: Based on the given example, we can see that activities C and D depend on activities A and B, respectively. Activity E depends on B, and activity G depends on both E and F. Activity H depends on activities C and D.</li>
+          <li>Caculate the Expected Duration</li>
+          <ul>
+            <li>Activity A: TE(A) = 6 units (O = 4, M = 6, P = 8)</li>
+            <li>Activity B: TE(B) = 4 units (O = 3, M = 4, P = 5)</li>
+            <li>Activity C: TE(C) = 3 units (O = 2, M = 3, P = 5)</li>
+            <li>Activity D: TE(D) = 4 units (O = 3, M = 4, P = 6)</li>
+            <li>Activity E: TE(E) = 3 units (O = 2, M = 3, P = 4)</li>
+            <li>Activity F: TE(F) = 10 units (O = 8, M = 10, P = 12)</li>
+            <li>Activity G: TE(G) = 3 units (O = 2, M = 3, P = 4)</li>
+            <li>Activity H: TE(H) = 2 units (O = 1, M = 2, P = 3)</li>
+        </ul>
           <li>Calculate the earliest start and finish times: Starting with the first activity and moving forward, calculate the earliest start and finish times for each activity. The earliest start time of an activity is the maximum of the earliest finish times of its predecessors. The earliest finish time is the sum of the earliest start time and the activity's duration.</li>
-        <ul>
-          <li>Activity A: Earliest start time = 0, Earliest finish time = 6</li>
-          <li>Activity B: Earliest start time = 0, Earliest finish time = 4</li>
-          <li>Activity C: Earliest start time = 6 (earliest finish time of A), Earliest finish time = 9 (6 + duration)</li>
-          <li>Activity D: Earliest start time = 4 (earliest finish time of B), Earliest finish time = 8 (4 + duration)</li>
-          <li>Activity E: Earliest start time = 4 (earliest finish time of B), Earliest finish time = 7 (4 + duration)</li>
-          <li>Activity F: Earliest start time = 0, Earliest finish time = 10</li>
-          <li>Activity G: Earliest start time = 10 (earliest finish time of F), Earliest finish time = 13 (10 + duration)</li>
-          <li>Activity H: Earliest start time = 9 (earliest finish time of C), Earliest finish time = 11 (9 + duration)</li>
+          <ul>
+          <li>
+            <strong>Activity A: </strong>
+            EST(A) = 0
+            EFT(A) = EST(A) + TE(A) = 0 + 6 = 6
+          </li>
+          <li>
+            <strong>Activity B: </strong>
+            EST(B) = 0
+            EFT(B) = EST(B) + TE(B) = 0 + 4 = 4
+          </li>
+          <li>
+            <strong>Activity C: </strong>
+            EST(C) = EFT(A) = 6
+            EFT(C) = EST(C) + TE(C) = 6 + 3 = 9
+          </li>
+          <li>
+            <strong>Activity D:</strong>
+            EST(D) = EFT(B) = 4
+            EFT(D) = EST(D) + TE(D) = 4 + 4 = 8
+          </li>
+          <li>
+            <strong>Activity E: </strong>
+            EST(E) = EFT(B) = 4
+            EFT(E) = EST(E) + TE(E) = 4 + 3 = 7
+          </li>
+          <li>
+            <strong>Activity F: </strong>
+            EST(F) = 0
+            EFT(F) = EST(F) + TE(F) = 0 + 10 = 10
+          </li>
+          <li>
+            <strong>Activity G: </strong>
+            EST(G) = max(EFT(E), EFT(F)) = max(7, 10) = 10
+            EFT(G) = EST(G) + TE(G) = 10 + 3 = 13
+          </li>
+          <li>
+            <strong>Activity H: </strong>
+            EST(H) = max(EFT(C), EFT(D)) = max(9, 8) = 9
+            EFT(H) = EST(H) + TE(H) = 9 + 2 = 11
+          </li>
         </ul>
         <li>Calculate the latest start and finish times: Starting with the last activity and moving backward, calculate the latest start and finish times for each activity. The latest finish time of the last activity is equal to its earliest finish time. The latest start time is the difference between the latest finish time and the activity's duration.</li>
         <ul>
-          <li>Activity H: Latest start time = 9 (latest finish time - duration), Latest finish time = 11</li>
-          <li>Activity G: Latest start time = 10 (latest finish time - duration), Latest finish time = 13</li>
-          <li>Activity F: Latest start time = 0, Latest finish time = 10</li>
-          <li>Activity E: Latest start time = 4 (latest finish time - duration), Latest finish time = 7</li>
-          <li>Activity D: Latest start time = 4 (latest finish time - duration), Latest finish time = 8</li>
-          <li>Activity C: Latest start time = 6 (latest finish time - duration), Latest finish time = 9 </li>
-          <li>Activity B: Latest start time = 0, Latest finish time = 4 </li>
-          <li>Activity A: Latest start time = 0, Latest finish time = 6  </li>
-        </ul>
-        <li>Calculate the total float/slack: The total float or slack of an activity is the amount of time it can be delayed without affecting the project duration. It is calculated as the difference between the latest start time and the earliest start time.</li>
-        <ul>
-          <li>Activity A: Total float = Latest start time - Earliest start time = 0 - 0 = 0</li>
-          <li>Activity B: Total float = Latest start time - Earliest start time = 4 - 0 = 4</li>
-          <li>Activity C: Total float = Latest start time - Earliest start time = 9 - 6 = 3</li>
-          <li>Activity D: Total float = Latest start time - Earliest start time = 8 - 4 = 4</li>
-          <li>Activity E: Total float = Latest start time - Earliest start time = 7 - 4 = 3</li>
-          <li>Activity F: Total float = Latest start time - Earliest start time = 10 - 0 = 10</li>
-          <li>Activity G: Total float = Latest start time - Earliest start time = 13 - 10 = 3</li>
-          <li>Activity H: Total float = Latest start time - Earliest start time = 11 - 9 = 2</li>
+          <li>
+            <strong>Activity H:</strong>
+            LFT(H) = EFT(H) = 11
+            LST(H) = LFT(H) - TE(H) = 11 - 2 = 9
+          </li>
+          <li>
+            <strong>Activity G:</strong>
+            LFT(G) = min(LST(H) - TE(G), LST(F) - TE(G)) = min(9 - 3, 10 - 3) = min(6, 7) = 6
+            LST(G) = LFT(G) - TE(G) = 6 - 3 = 3
+          </li>
+          <li>
+            <strong>Activity F:</strong>
+            LFT(F) = EFT(F) = 10
+            LST(F) = LFT(F) - TE(F) = 10 - 10 = 0
+          </li>
+          <li>
+            <strong>Activity E:</strong>
+            LFT(E) = LST(G) = 3
+            LST(E) = LFT(E) - TE(E) = 3 - 3 = 0
+          </li>
+          <li>
+            <strong>Activity D:</strong>
+            LFT(D) = min(LST(H) - TE(D), LST(B) - TE(D)) = min(9 - 4, 4 - 4) = min(5, 0) = 0
+            LST(D) = LFT(D) - TE(D) = 0 - 4 = -4
+          </li>
+          <li>
+            <strong>Activity C:</strong>
+            LFT(C) = min(LST(H) - TE(C), LST(A) - TE(C)) = min(9 - 3, 6 - 3) = min(6, 3) = 3
+            LST(C) = LFT(C) - TE(C) = 3 - 3 = 0
+          </li>
+          <li>
+            <strong>Activity B:</strong>
+            LFT(B) = min(LST(D) - TE(B), LST(E) - TE(B)) = min(-4 - 4, 0 - 4) = min(-8, -4) = -8
+            LST(B) = LFT(B) - TE(B) = -8 - 4 = -12
+          </li>
+          <li>
+            <strong>Activity A:</strong>
+            LFT(A) = LST(C) = 0
+            LST(A) = LFT(A) - TE(A) = 0 - 6 = -6
+          </li>
         </ul>
         <li>Determine the critical path: The critical path consists of activities with zero total float. It represents the longest sequence of dependent activities and determines the minimum project duration.</li>
         </ol>
