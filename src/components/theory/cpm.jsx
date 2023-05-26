@@ -29,7 +29,7 @@ const Cpm = () => {
       </MDBContainer>
 
       <MDBContainer className='bg-light bg-gradient p-4 mb-3'>
-        <MDBTypography variant='h4'>CPM Expalined by example</MDBTypography>
+        <MDBTypography variant='h4'>CPM Explained by example</MDBTypography>
         <MDBTypography variant='p'>Here is the breakdown of the example activities:</MDBTypography>
         <ol>
           <li>Activity A: Duration 6, No predecessors</li>
