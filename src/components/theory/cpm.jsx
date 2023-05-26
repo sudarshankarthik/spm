@@ -3,7 +3,7 @@ import React from 'react'
 
 const Cpm = () => {
   return (
-    <div>
+    <div className='theory-content'>
       <MDBTypography variant='h1' className='mb-5'>Critical Path Method</MDBTypography>
       <MDBContainer className='bg-light bg-gradient mb-3'>
         <MDBTypography variant='p'> The Critical Path Method (CPM) is a project management technique used to identify the activities that are crucial for completing a project within a specified timeframe. It helps in determining the longest path of dependent activities, known as the critical path, which directly influences the project's overall duration. </MDBTypography>

@@ -4,7 +4,7 @@ import risks from '../../assets/images/risks.png'
 
 const Risk = () => {
   return (
-    <div>
+    <div className='theory-content'>
       <MDBTypography variant='h1'>Introduction to RISK Management</MDBTypography>
         <MDBTypography variant='h5'>An uncertain event or condition that, if it occurs, has a positive or negative effect on a project’s objectives.</MDBTypography>
       <MDBContainer className='mb-4 bg-light bg-gradient p-3'>
